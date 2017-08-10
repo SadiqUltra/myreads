@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import Books from './Books'
 
 class SearchBooks extends Component {
     render() {
@@ -21,7 +22,7 @@ class SearchBooks extends Component {
                 </div>
                 </div>
                 <div className="search-books-results">
-                <ol className="books-grid"></ol>
+                    <Books title={'Search Results'} />
                 </div>
             </div>
         )
