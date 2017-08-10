@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Books from './Books'
 
 class Home extends Component {
+
     render() {
         return (
             <div className="list-books">
@@ -11,11 +12,11 @@ class Home extends Component {
                 </div>
                 <div className="list-books-content">
                     <div>
-                        <Books title={'Currently Reading'} />
+                        <Books books={this.props.wantToRead} title={'Currently Reading'} />
 
-                        <Books title={'Want to Read'} />
+                        <Books books={this.props.currentlyReading} title={'Want to Read'} />
 
-                        <Books title={'Read'} />
+                        <Books books={this.props.read} title={'Read'} />
 
                     </div>
                 </div>
