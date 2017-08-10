@@ -11,6 +11,7 @@ class BooksApp extends React.Component {
     wantToRead: [],
     currentlyReading: [],
     read: [],
+    searchedBooks: []
   }
   componentDidMount(){
     BooksAPI.getAll().then((books) => {
@@ -19,6 +20,16 @@ class BooksApp extends React.Component {
       let read =  books.filter((book) => book.shelf === 'read' )
 
       this.setState({ wantToRead, currentlyReading, read})
+    })
+  }
+
+  // search book from api and return books json
+  searchBook = (query) => {
+    console.log(query)
+    this.setState({ searchedBooks: [] })
+
+    BooksAPI.search(query, 20).then( (searchedBooks) => {
+      this.setState({ searchedBooks })
     })
   }
 
@@ -34,7 +45,10 @@ class BooksApp extends React.Component {
            />
         )}/>
         <Route path='/search' render={() => (
-          <SearchBooks />
+          <SearchBooks
+            onSearch={this.searchBook}
+            searchedBooks={this.state.searchedBooks}
+          />
         )}/>
 
 
