@@ -12,11 +12,23 @@ class Home extends Component {
                 </div>
                 <div className="list-books-content">
                     <div>
-                        <Books books={this.props.wantToRead} title={'Currently Reading'} />
+                        <Books
+                          title={'Currently Reading'}
+                          books={this.props.currentlyReading}
+                          onUpdateBookShelf={this.props.onUpdateBookShelf}
+                        />
 
-                        <Books books={this.props.currentlyReading} title={'Want to Read'} />
+                        <Books
+                          title={'Want to Read'}
+                          books={this.props.wantToRead}
+                          onUpdateBookShelf={this.props.onUpdateBookShelf}
+                         />
 
-                        <Books books={this.props.read} title={'Read'} />
+                         <Books
+                           title={'Read'}
+                           books={this.props.read}
+                           onUpdateBookShelf={this.props.onUpdateBookShelf}
+                         />
 
                     </div>
                 </div>

@@ -2,6 +2,12 @@ import React, { Component } from 'react'
 // import { Link } from 'react-router-dom'
 
 class Books extends Component {
+
+    updateBookShelf = (book, shelf) => {
+      console.log(book, shelf)
+      this.props.onUpdateBookShelf(book, shelf)
+    }
+
     render() {
         return (
             <div className="bookshelf">
@@ -14,7 +20,7 @@ class Books extends Component {
                               <div className="book-top">
                                   <div className="book-cover" style={{ width: 128, height: 188, backgroundImage: 'url(' + book.imageLinks.thumbnail + ')' }}></div>
                                   <div className="book-shelf-changer">
-                                  <select>
+                                  <select onChange={(event) => this.updateBookShelf(book, event.target.value)} >
                                       <option value="none" disabled>Move to...</option>
                                       <option value="currentlyReading">Currently Reading</option>
                                       <option value="wantToRead">Want to Read</option>
