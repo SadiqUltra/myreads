@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import Books from './Books'
+import BooksList from './BooksList'
 
 class SearchBooks extends Component {
 
@@ -41,7 +41,7 @@ class SearchBooks extends Component {
                 </div>
                 </div>
                 <div className="search-books-results">
-                    <Books
+                    <BooksList
                       title={'Search Results: ' + this.state.query}
                       books={this.props.searchedBooks}
                       onUpdateBookShelf={this.props.onUpdateBookShelf}

@@ -4,6 +4,7 @@ import * as BooksAPI from './utils/BooksAPI'
 import './App.css'
 import SearchBooks from './Components/SearchBooks'
 import Home from './Components/Home'
+import BookDetails from './Components/BookDetails'
 
 class BooksApp extends React.Component {
 
@@ -99,6 +100,8 @@ class BooksApp extends React.Component {
             onUpdateBookShelf={this.updateBookShelf}
           />
         )}/>
+        <Route path='/book/:id' component={BookDetails} />
+
 
 
       </div>

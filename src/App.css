@@ -161,6 +161,27 @@ body, .app {
   cursor: pointer;
 }
 
+.book-details-modal {
+  font-size: small;
+  color: #60ac5d;
+}
+
+/**/
+.book-modal h3 {
+  color: green;
+  padding-right: 7px;
+  font-size: 0.95em;
+  margin-bottom: 5px;
+}
+
+.book-modal-cover {
+  background-repeat: no-repeat;
+}
+
+.book-modal-description {
+  background: #fff;
+  position: relative;
+}
 /* book cover */
 
 .book-cover {

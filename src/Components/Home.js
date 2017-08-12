@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import Books from './Books'
+import BooksList from './BooksList'
 
 class Home extends Component {
 
@@ -12,19 +12,19 @@ class Home extends Component {
                 </div>
                 <div className="list-books-content">
                     <div>
-                        <Books
+                        <BooksList
                           title={'Currently Reading'}
                           books={this.props.currentlyReading}
                           onUpdateBookShelf={this.props.onUpdateBookShelf}
                         />
 
-                        <Books
+                        <BooksList
                           title={'Want to Read'}
                           books={this.props.wantToRead}
                           onUpdateBookShelf={this.props.onUpdateBookShelf}
                          />
 
-                         <Books
+                         <BooksList
                            title={'Read'}
                            books={this.props.read}
                            onUpdateBookShelf={this.props.onUpdateBookShelf}
