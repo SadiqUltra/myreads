@@ -26,18 +26,18 @@ class BooksApp extends React.Component {
     let read =  books.filter((book) => book.shelf === 'read' )
 
     this.setState({ books, wantToRead, currentlyReading, read})
-    console.log('book rearranged!', books, wantToRead, currentlyReading, read)
+    // console.log('book rearranged!', books, wantToRead, currentlyReading, read)
   }
 
   // search book from api and return books json
   updateBookShelf = (book, shelf) => {
-    console.log('I in app.js:', shelf)
+    // console.log('app.js:shelf', shelf)
     // local update, user won't need to wait while updating on server
 
     let isNewBook = true
 
     let books = this.state.books.map( (b) => {
-      if(b.id == book.id){
+      if(b.id === book.id){
         b.shelf = shelf
         isNewBook = false
       }
@@ -56,12 +56,28 @@ class BooksApp extends React.Component {
 
   // update book shelf
   searchBook = (query) => {
-    console.log(query)
+    // console.log(query)
     this.setState({ searchedBooks: [] })
     if(query.length > 0)
       BooksAPI.search(query, 20).then( (searchedBooks) => {
+
+        searchedBooks = this.getRealBookShelf(searchedBooks)
+
         this.setState({ searchedBooks })
       })
+  }
+
+  getRealBookShelf(books){
+    return books.map((book) => {
+      let matchedBook = this.state.books.filter( (b) => book.id === b.id)
+
+      if(matchedBook.length > 0){
+        // console.info('matchedBook', matchedBook[0])
+        book.shelf = matchedBook[0].shelf
+      }
+
+      return book
+    })
   }
 
 
