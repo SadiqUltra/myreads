@@ -166,11 +166,12 @@ body, .app {
   color: #60ac5d;
 }
 
-/**/
+/* book modal*/
+
 .book-modal h3 {
   color: green;
+  font-size: 0.90em;
   padding-right: 7px;
-  font-size: 0.95em;
   margin-bottom: 5px;
 }
 

@@ -73,48 +73,50 @@ class Book extends Component {
             className='close-search'
             >Close
           </a>
-          <div
-            className='book-cover'
-            style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : ''})` }}
-          ></div>
-          <h3>Title</h3>
-          <div className='book-modal-title'>{book.title}</div>
-          <h3>Description</h3>
-          <div className='book-modal-description'>{book.description}</div>
-          <h3>Page Count</h3>
-          <div className='book-modal-pages'>{book.pageCount} pages</div>
-          { book.authors && (
+          <div className='book-modal'>
+            <div
+              className='book-cover'
+              style={{ width: 128, height: 188, backgroundImage: `url(${book.imageLinks ? book.imageLinks.thumbnail : ''})` }}
+            ></div>
+            <h3>Title</h3>
+            <div className='book-modal-title'>{book.title}</div>
+            <h3>Description</h3>
+            <div className='book-modal-description'>{book.description}</div>
+            <h3>Page Count</h3>
+            <div className='book-modal-pages'>{book.pageCount} pages</div>
+            { book.authors && (
+                <div>
+                  <h3>Author{book.authors.length>1?'s':''}</h3>
+
+                  {book.authors.map((author) => (
+                    <div key={author}>{author}</div>
+                  ))}
+                </div>
+              )
+            }
+            <h3>Publisher</h3>
+            <div>{book.publisher}</div>
+            <h3>Published Date</h3>
+            <div>{book.publishedDate}</div>
+
+            { book.categories && (
+                <div>
+                  <h3>Categor{book.categories.length>1?'ies':'y'}</h3>
+
+                  {book.categories.map((category) => (
+                    <div key={category}>{category}</div>
+                  ))}
+                </div>
+              )
+            }
+
+            {book.averageRating && (
               <div>
-                <h3>Author{book.authors.length>1?'s':''}</h3>
-
-                {book.authors.map((author) => (
-                  <div key={author}>{author}</div>
-                ))}
+                <h3>Rating</h3>
+                <div>{book.averageRating}/5 upon {book.ratingsCount} review{book.ratingsCount>1?'s':''}</div>
               </div>
-            )
-          }
-          <h3>Publisher</h3>
-          <div>{book.publisher}</div>
-          <h3>Published Date</h3>
-          <div>{book.publishedDate}</div>
-
-          { book.categories && (
-              <div>
-                <h3>Categor{book.categories.length>1?'ies':'y'}</h3>
-
-                {book.categories.map((category) => (
-                  <div key={category}>{category}</div>
-                ))}
-              </div>
-            )
-          }
-
-          {book.averageRating && (
-            <div>
-              <h3>Rating</h3>
-              <div>{book.averageRating}/5 upon {book.ratingsCount} review{book.ratingsCount>1?'s':''}</div>
-            </div>
-          )}
+            )}
+          </div>
 
           <a
             href="#"
