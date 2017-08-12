@@ -13,7 +13,7 @@ npm start
 ## Files Included
 
 ```
-my-read
+my-reads
 |-- package.json
 |-- public
 |   |-- favicon.ico

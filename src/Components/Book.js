@@ -15,18 +15,20 @@ class Book extends Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
+  // quickly shows books details
   openModal() {
     this.setState({modalIsOpen: true});
   }
 
   afterOpenModal() {
-    // references are now sync'd and can be accessed.
+    // after modal open this fucntion will run
   }
 
   closeModal() {
     this.setState({modalIsOpen: false});
   }
 
+  // update book's shelf info
   updateBookShelf = (book, shelf) => {
     this.props.onUpdateBookShelf(book, shelf)
   }
