@@ -1,3 +1,5 @@
+![ScreenShot myreads-react](/ScreenShot.gif?raw=true "ScreenShot myreads-react")
+
 ### Installation
 
 ```
